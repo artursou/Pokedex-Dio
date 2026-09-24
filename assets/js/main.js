@@ -1,11 +1,10 @@
 
 const pokenonList = document.getElementById("pokemonList")
 const loadMoreButton = document.getElementById("loadMoreButton")
-const limit = 20
+const limit = 2
 let offset = 0
 
 const maxRecords = 100000;
-
 
 
 function loadPokemonItens(offset, limit) {
@@ -45,3 +44,25 @@ loadMoreButton.addEventListener("click", () => {
 
     
 })
+
+const buttonSearch = document.getElementById("idDuttonSearch")
+const inputSearch = document.getElementById("idInputSearch")
+
+pokeApi.getPokemonsByName = (pokemonName) => {
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName.name}`;
+
+        return fetch(url)
+        .then((response) => response.json())
+        .then((jsonBody) => jsonBody.results)
+        .then((pokemons) => pokemons.map(pokeApi.getPokemonsDetail)) 
+        .then((detailRequest) => Promise.all(detailRequest))
+        .then((pokemonsDetails) => pokemonsDetails)
+    }
+
+buttonSearch.addEventListener("click", () => {
+    const text = inputSearch.value.toLowerCase()
+    
+
+    console.log(getPokemonsByName(text))
+})
+
