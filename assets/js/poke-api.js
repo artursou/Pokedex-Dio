@@ -13,7 +13,8 @@ function convertPokeApiDetailPokemon(pokeDetail) {
     pokemon.type = type
 
     pokemon.photo = pokeDetail.sprites.other.home.front_default
-
+    pokemon.photoShiny = pokeDetail.sprites.other.home.front_shiny
+    
     return pokemon
 }
 

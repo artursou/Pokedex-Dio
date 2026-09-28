@@ -147,3 +147,72 @@
     margin: .25rem 0;
     font-size: .825rem;
 }
+
+/* 1. ADICIONE 'position: relative' na sua classe .pokemon existente */
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative; /* Mantém o botão preso às bordas deste card */
+}
+
+/* 2. ADICIONE estas novas regras no final do arquivo */
+.pokemon .shiny-btn {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    opacity: 0.4;
+    transition: all 0.2s ease-in-out;
+    padding: 0;
+    z-index: 10;
+}
+
+.pokemon .shiny-btn:hover {
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+/* Classe para o JS ativar quando o modo Shiny estiver ligado */
+.pokemon .shiny-btn.active {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+/* Fundo escuro cobrindo a tela toda */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+/* A classe mágica que o JS vai ligar e desligar */
+.escondido {
+    display: none !important;
+}
+/* O cartão branco no centro */
+.modal-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+.close-btn {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: red; color: white;
+    border: none; border-radius: 50%;
+    width: 30px; height: 30px;
+    cursor: pointer;
+}
+.modal-stats { text-align: left; margin-top: 1rem; }

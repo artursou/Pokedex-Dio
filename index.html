@@ -33,6 +33,20 @@
         </div>
     </section>
 
+    <div id="modalDetalhes" class="modal-overlay escondido">
+        <div class="modal-card">
+            <button id="btnFecharModal" class="close-btn">X</button>
+            <h2 id="modalNome">Nome do Pokemon</h2>
+            <img id="modalImagem" src="" alt="">
+            <div class="modal-stats">
+                <p><strong>HP:</strong> <span id="modalHp">0</span></p>
+                <p><strong>Ataque:</strong> <span id="modalAtk">0</span></p>
+                <p><strong>Defesa:</strong> <span id="modalDef">0</span></p>
+                <p><strong>Peso:</strong> <span id="modalPeso">0</span> kg</p>
+            </div>
+        </div>
+    </div>
+
     <script src="/assets/js/pokemon-model.js"></script>
     <script src="/assets/js/poke-api.js"></script>
     <script src="/assets/js/main.js"></script>
