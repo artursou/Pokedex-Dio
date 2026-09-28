@@ -48,21 +48,34 @@ loadMoreButton.addEventListener("click", () => {
 const buttonSearch = document.getElementById("idDuttonSearch")
 const inputSearch = document.getElementById("idInputSearch")
 
-pokeApi.getPokemonsByName = (pokemonName) => {
-        const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName.name}`;
 
-        return fetch(url)
-        .then((response) => response.json())
-        .then((jsonBody) => jsonBody.results)
-        .then((pokemons) => pokemons.map(pokeApi.getPokemonsDetail)) 
-        .then((detailRequest) => Promise.all(detailRequest))
-        .then((pokemonsDetails) => pokemonsDetails)
-    }
 
 buttonSearch.addEventListener("click", () => {
     const text = inputSearch.value.toLowerCase()
     
+    pokeApi.getPokemonsByName(text)
+        .then((pokemon) => {
+            const htmlDoPokemon = `
+                <li class="pokemon ${pokemon.type}">
+                    <span class="number">#${pokemon.number}</span>
+                    <span class="name">${pokemon.name}</span>
+                    <div class="detail">
+                        <ol class="types">
+                            ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join("")}
+                        </ol>
+                        <img src="${pokemon.photo}" alt="${pokemon.name}">
+                    </div>        
+                </li>
+            `;
 
-    console.log(getPokemonsByName(text))
+            pokemonList.innerHTML = "";
+
+            pokenonList.innerHTML = htmlDoPokemon;
+
+            loadMoreButton.style.display = "none";
+        })
+        .catch((error) => {
+            alert("Pokemon nao encontrado!")
+        })
 })
 
