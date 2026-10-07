@@ -12,6 +12,12 @@ function convertPokeApiDetailPokemon(pokeDetail) {
     pokemon.types = types
     pokemon.type = type
 
+    pokemon.weight = pokeDetail.weight / 10;
+
+    pokemon.hp = pokeDetail.stats[0].base_stat
+    pokemon.atk = pokeDetail.stats[1].base_stat
+    pokemon.def = pokeDetail.stats[2].base_stat
+
     pokemon.photo = pokeDetail.sprites.other.home.front_default
     pokemon.photoShiny = pokeDetail.sprites.other.home.front_shiny
     

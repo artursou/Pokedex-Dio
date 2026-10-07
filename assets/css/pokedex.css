@@ -216,3 +216,7 @@
     cursor: pointer;
 }
 .modal-stats { text-align: left; margin-top: 1rem; }
+
+#modalImagem {
+    width: 100px; height: 100px;
+}
