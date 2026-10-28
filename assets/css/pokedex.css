@@ -220,3 +220,64 @@
 #modalImagem {
     width: 100px; height: 100px;
 }
+
+.pokemon .heart-btn {
+    position: absolute;
+    top: 2.5rem; /* Aumentamos o top para descer o botão e liberar o espaço do número */
+    right: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: transform 0.2s ease-in-out;
+    padding: 0;
+    z-index: 10;
+}
+
+.pokemon .heart-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Quando o JS adicionar essa classe, o ícone brilha */
+.pokemon .heart-btn.favoritado {
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8));
+}
+
+.type-filters {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto; /* Permite rolar pro lado se não couber na tela */
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    scrollbar-width: none; /* Esconde barra de rolagem (Firefox) */
+}
+
+.type-filters::-webkit-scrollbar {
+    display: none; /* Esconde barra de rolagem (Chrome/Safari) */
+}
+
+.filter-btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.5; /* Ficam apagados até serem clicados */
+    transition: opacity 0.2s, transform 0.2s;
+    text-transform: capitalize;
+}
+
+.filter-btn:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.filter-btn.active {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.type-all {
+    background-color: #333;
+}

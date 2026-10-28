@@ -48,3 +48,13 @@ pokeApi.getPokemonsByName = (pokemonName) => {
         .then((response) => response.json())
         .then((jsonBody) => convertPokeApiDetailPokemon(jsonBody))
 }
+
+pokeApi.getPokemonsByType = (pokemonType) => {
+    const url = `https://pokeapi.co/api/v2/type/${pokemonType}/`;
+    
+    return fetch(url)
+        .then((response) => response.json())
+        .then((jsonBody) => jsonBody.pokemon) 
+        .then((pokemons) => pokemons.map(pokeSlot => pokeApi.getPokemonsDetail(pokeSlot.pokemon)))
+        .then((detailRequest) => Promise.all(detailRequest))
+}

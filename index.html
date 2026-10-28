@@ -23,14 +23,24 @@
         <input id="idInputSearch" class="inputSearch" type="text"> 
         <button id="idDuttonSearch" class="buttonSearch" type="submit">Pesquisar</button>
 
+        <nav id="typeFilters" class="type-filters">
+            <!-- O botão "all" serve para limpar o filtro -->
+            <button class="filter-btn type-all active" data-type="all">Todos</button>
+            
+            <!-- Reutilizando suas classes de cores de background -->
+            <button class="filter-btn grass" data-type="12">Grass</button>
+            <button class="filter-btn fire" data-type="10">Fire</button>
+            <button class="filter-btn water" data-type="11">Water</button>
+            <button class="filter-btn electric" data-type="13">Electric</button>
+            <button class="filter-btn bug" data-type="7">Bug</button>
+            <button class="filter-btn normal" data-type="1">Normal</button>
+            <!-- Pode adicionar os outros tipos aqui -->
+        </nav>
+
         <ol id="pokemonList" class="pokemons">   
         </ol>
         
-        <div class="pagination">
-            <button id="loadMoreButton" type="button">
-                Load More
-            </button>
-        </div>
+        <div id="sentinela" style="height: 50px; width: 100%;"></div>
     </section>
 
     <div id="modalDetalhes" class="modal-overlay escondido">
